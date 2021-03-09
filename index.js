@@ -34,6 +34,13 @@ const adapter = new BotFrameworkAdapter({
     openIdMetadata: process.env.BotOpenIdMetadata
 });
 
+// Map knowledge base endpoint values from .env file into the required format for `QnAMaker`.
+const configuration = {
+    knowledgeBaseId: process.env.QnAKnowledgebaseId,
+    endpointKey: process.env.QnAAuthKey,
+    host: process.env.QnAEndpointHostName
+ };
+
 // Catch-all for errors.
 const onTurnErrorHandler = async (context, error) => {
     // This check writes out errors to console log .vs. app insights.
@@ -58,7 +65,7 @@ const onTurnErrorHandler = async (context, error) => {
 adapter.onTurnError = onTurnErrorHandler;
 
 // Create the main dialog.
-const myBot = new EchoBot();
+const myBot = new MyBot(configuration, {});
 
 // Listen for incoming requests.
 server.post('/api/messages', (req, res) => {
