@@ -43,7 +43,7 @@ class MyBot extends ActivityHandler {
     }
 }
 
-module.exports.EchoBot = EchoBot;
+module.exports.MyBot = MyBot;
 
 // SIG // Begin signature block
 // SIG // MIInKwYJKoZIhvcNAQcCoIInHDCCJxgCAQExDzANBglg
