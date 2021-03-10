@@ -5,12 +5,12 @@ const { ActivityHandler, MessageFactory } = require('botbuilder');
 
 const { QnAMaker } = require('botbuilder-ai');
 
-class EchoBot extends ActivityHandler {
+class MyBot extends ActivityHandler {
     constructor(configuration, qnaOptions) {
         super();
         if (!configuration) throw new Error('[QnaMakerBot]: Missing parameter. configuration is required');
-         // now create a qnaMaker connector.
-         this.qnaMaker = new QnAMaker(configuration, qnaOptions);
+        // now create a qnaMaker connector.
+        this.qnaMaker = new QnAMaker(configuration, qnaOptions);
         // See https://aka.ms/about-bot-activity-message to learn more about the message and other activity types.
         this.onMessage(async (context, next) => {
             // send user input to QnA Maker.
