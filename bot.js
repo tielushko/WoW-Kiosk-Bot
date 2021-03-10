@@ -5,7 +5,7 @@ const { ActivityHandler, MessageFactory } = require('botbuilder');
 
 const { QnAMaker } = require('botbuilder-ai');
 
-class MyBot extends ActivityHandler {
+class EchoBot extends ActivityHandler {
     constructor(configuration, qnaOptions) {
         super();
         if (!configuration) throw new Error('[QnaMakerBot]: Missing parameter. configuration is required');
@@ -43,7 +43,7 @@ class MyBot extends ActivityHandler {
     }
 }
 
-module.exports.MyBot = MyBot;
+module.exports.EchoBot = EchoBot;
 
 // SIG // Begin signature block
 // SIG // MIInKwYJKoZIhvcNAQcCoIInHDCCJxgCAQExDzANBglg
