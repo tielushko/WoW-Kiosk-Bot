@@ -65,7 +65,7 @@ const onTurnErrorHandler = async (context, error) => {
 adapter.onTurnError = onTurnErrorHandler;
 
 // Create the main dialog.
-const myBot = new MyBot(configuration, {});
+const myBot = new EchoBot(configuration, {});
 
 // Listen for incoming requests.
 server.post('/api/messages', (req, res) => {
