@@ -18,7 +18,7 @@ class EchoBot extends ActivityHandler {
 
             // If an answer was received from QnA Maker, send the answer back to the user.
             if (qnaResults[0]) {
-                await context.sendActivity(`${ qnaResults[0].answer}`);
+                //fetch the prompts that follow the message to provide answers, send the main answer with those prompt cards back to the bot.
                 let reply = MessageFactory.suggestedActions(qnaResults[0].context.prompts.map(prompt => {
                               return prompt.displayText;
                 }), qnaResults[0].answer);
