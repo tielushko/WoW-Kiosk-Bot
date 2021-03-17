@@ -22,16 +22,16 @@ class EchoBot extends ActivityHandler {
             }
             else {
                 // If no answers were returned from QnA Maker, reply with help.
-                await context.sendActivity('No QnA Maker response was returned.'
-                    + 'This example uses a QnA Maker Knowledge Base that focuses on smart light bulbs. '
-                    + `Ask the bot questions like "Why won't it turn on?" or "I need help."`);
+                await context.sendActivity('Sorry, I do not yet know the answer to this questions, but my devs are working hard to teach me new things every day.'
+                    + 'You can instead ask me about \"Events\", \"College How Tos\", \"Student Organizations\", "Directions" or some other frequently asked questions.'
+                    + `If you ever need help, ask me "I need help."`);
             }
             await next();
         });
 
         this.onMembersAdded(async (context, next) => {
             const membersAdded = context.activity.membersAdded;
-            const welcomeText = 'Hello and welcome!';
+            const welcomeText = 'Hello :) Ask me anything about Week of Welcome!';
             for (let cnt = 0; cnt < membersAdded.length; ++cnt) {
                 if (membersAdded[cnt].id !== context.activity.recipient.id) {
                     await context.sendActivity(MessageFactory.text(welcomeText, welcomeText));
