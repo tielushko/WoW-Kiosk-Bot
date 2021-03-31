@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <script src="https://cdn.botframework.com/botframework-webchat/latest/webchat.js"></script>
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        margin: 0;
+      }
+
+      #webchat {
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="webchat" role="main"></div>
+
+    <script>
+      (async function () {
+        var speechServicesTokenRes = await fetch(
+          "https://uksouth.api.cognitive.microsoft.com/sts/v1.0/issueToken",
+
+          {
+            method: "POST",
+            headers: {
+              "Ocp-Apim-Subscription-Key": "687e3cfae6fa46bf8cd8704ccc1ca2cf",
+            },
+          }
+        );
+
+        if (speechServicesTokenRes.status === 200) {
+          authorizationToken = await speechServicesTokenRes.text();
+
+          var webSpeechPonyfillFactory = await window.WebChat.createCognitiveServicesSpeechServicesPonyfillFactory(
+            {
+              authorizationToken: authorizationToken,
+
+              region: "eastus",
+            }
+          );
+
+          window.WebChat.renderWebChat(
+            {
+              directLine: createDirectLine({
+                secret:
+                  "2c4h4yYxDwo.49gc1AlYyld06R2RBHZOf3WilzPzqjcXO_KPwID3i5Q",
+              }),
+
+              webSpeechPonyfillFactory: webSpeechPonyfillFactory,
+            },
+            document.getElementById("webchat")
+          );
+        }
+      })().catch((err) => console.error(err));
+    </script>
+  </body>
+</html>
