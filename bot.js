@@ -25,6 +25,7 @@ class EchoBot extends ActivityHandler {
                 let parsedTextBreak = qnaResults[0].answer.indexOf('\n\n![');
                 if (parsedTextBreak != -1) {
                     reply.speak = qnaResults[0].answer.slice(0, parsedTextBreak);
+                    reply.inputHint = 'expectingInput';
                 }
                 await context.sendActivity(reply);
             }
