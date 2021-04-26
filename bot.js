@@ -31,10 +31,12 @@ class EchoBot extends ActivityHandler {
             }
             else {
                 // If no answers were returned from QnA Maker, reply with help.
-                let reply = MessageFactory.Text('Sorry, I do not yet know the answer to this questions, but my devs are working hard to teach me new things every day.'
+                let reply = MessageFactory.text('Sorry, I do not yet know the answer to this questions, but my devs are working hard to teach me new things every day.'
                     + 'You can instead ask me about \"Events\", \"College How Tos\", \"Student Organizations\", \"Directions\" or some other frequently asked questions.'
-                    + 'If you ever need help, ask me \"I need help.\"');
-                reply.inputHint = 'expectingInput';
+                    + 'If you ever need help, ask me \"I need help.\"', 'Sorry, I do not yet know the answer to this questions, but my devs are working hard to teach me new things every day.'
+                    + 'You can instead ask me about \"Events\", \"College How Tos\", \"Student Organizations\", \"Directions\" or some other frequently asked questions.'
+                    + 'If you ever need help, ask me \"I need help.\"', "expectingInput");
+                //reply.inputHint = 'expectingInput';
                 await context.sendActivity(reply);
             }
             await next();
