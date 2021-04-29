@@ -1,6 +1,6 @@
-# Echo Bot template
+# Week of Welcome Kiosk Bot
 
-This bot has been created using [Bot Framework](https://dev.botframework.com), it shows how to create a simple bot that accepts input from the user and echoes it back.
+This bot has been created using [Bot Framework](https://dev.botframework.com).
 
 ## Prerequisites
 
